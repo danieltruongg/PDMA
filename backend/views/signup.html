@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Sign Up</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form action='/33158312/daniel/users/signup/data' method="POST">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" name="username" class="form-control" id="username" 
+                                    placeholder="Enter Username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="password"
+                                    placeholder="Enter Password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="conf_password" class="form-label">Confirm Password</label>
+                                <input type="password" name="conf_password" class="form-control" id="conf_password"
+                                    placeholder="Re-enter Password" required>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        <div style="margin-top: 30px;"></div>
+                            <a href="/33158312/daniel/users/login" class="btn btn-secondary">Log In</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

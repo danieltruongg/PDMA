@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                <h3 style="margin: 20px;">Distance Calculator</h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">KMs to Melb</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(pkg of packages;track $index) {
+                            <tr>
+                                <th scope="row">
+                                    {{ pkg.package_id }}
+                                </th>
+                                <td>
+                                    {{ pkg.package_title }}
+                                </td>
+                                <td>
+                                    {{ pkg.package_weight|kilogramGram }}
+                                </td>
+                                <td>
+                                    {{ pkg.package_destination }}
+                                </td>
+                                <td>
+                                    {{ pkg.description }}
+                                </td>
+                                <td>
+                                    <form (click)="calcDistance(pkg.package_destination)">
+                                        <input type="hidden" name="package_destination" id="package_destination"/>
+                                        <input type="image" src="assets/images/distance.png" style="max-width: 25px; height: auto;" />
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (showDistance) {
+                    <br>
+                    <h6>Result</h6>
+                    @if (!result) {
+                        <h5>Invalid destination to calculate distance</h5>
+                    } @else {
+                        <h5>The distance from Melbourne to {{ destination }} is approximately {{ result }} kilometers</h5>
+                    } 
+                }
+            </div>
+        </main>
+    </body>
+</html>

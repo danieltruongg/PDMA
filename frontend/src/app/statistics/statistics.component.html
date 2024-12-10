@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Statistics</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Operation</th>
+                                    <th scope="col">Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Create</th>
+                                    <td>{{ stats.Create }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Delete</th>
+                                    <td>{{ stats.Delete }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Retrieve</th>
+                                    <td>{{ stats.Retrieve }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Update</th>
+                                    <td>{{ stats.Update }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <h6>Number of Drivers: {{ numDrivers }}</h6>
+                        <h6>Number of Packages: {{ numPackages }}</h6>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

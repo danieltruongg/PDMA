@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Delete an existing Driver</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form action="/33158312/daniel/drivers/delete-driver" method="GET">
+                            <div class="mb-3">
+                                <label for="driver-id" class="form-label">Driver ID</label>
+                                <input type="text" name="driver_id" class="form-control" id="driver_id" placeholder="Enter Driver ID">
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">View all Drivers based on Department</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form action="/33158312/daniel/drivers/department_view" method="GET">
+                            <div class="mb-3">
+                                <label for="drvrDepart" class="form-label">Department</label>
+                                <select class="form-select" id="drvrDepart" name="drvrDepart">
+                                    <option selected disabled>Select Department</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Electronic">Electronic</option>
+                                </select>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary">View</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

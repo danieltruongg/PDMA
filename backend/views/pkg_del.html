@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Delete an existing Package</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form action="/33158312/daniel/packages/delete-package" method="GET">
+                            <div class="mb-3">
+                                <label for="packageId" class="form-label">Package ID</label>
+                                <input type="text" name="package_id" class="form-control" id="package_id" placeholder="Enter Package ID">
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

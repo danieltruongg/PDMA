@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body style="padding-bottom: 200px;">
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Add a new Package</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form action='/33158312/daniel/packages/add/data' method="POST">
+                            <div class="mb-1">
+                                <label for="name" class="form-label"">Title</label>
+                                <input type="text" name="package_title" class="form-control" id="package_title" 
+                                    maxlength="15" minlength="3" placeholder="Enter Package title" required>
+                            </div>
+                            <div class="mb-1">
+                                <label for="name" class="form-label">Description</label>
+                                <input type="text" name="description" class="form-control" id="description"
+                                maxlength="30">
+                            </div>
+                            <div class="mb-1">
+                                <label for="weight" class="form-label">Weight</label>
+                                <input type="number" name="package_weight" class="form-control" id="package_weight"
+                                    min="1" placeholder="Enter Package weight" required>
+                            </div>
+                            <div class="mb-1">
+                                <label for="name" class="form-label">Destination</label>
+                                <input type="text" name="package_destination" class="form-control" id="package_destination"
+                                    maxlength="15" minlength="5" placeholder="Enter Package destination" required>
+                            </div>
+                            <div class="mb-1">
+                                <label class="form-label">Driver ID</label>
+                                <select class="form-select" id="driver_id" name="driver_id">
+                                    <option selected disabled>Select Driver</option>
+                                    <% for (let i=0; i < db.length; i++) { %>
+                                        <option value= "<%= db[i].driver_id %>">
+                                            <%= db[i].driver_id %>
+                                        </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="isAllocated" value="true" name="isAllocated">
+                                <label class="form-check-label" for="isAllocated">is Allocated</label>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

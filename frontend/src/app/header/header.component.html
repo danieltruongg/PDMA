@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<div class="d-inline-flex">
+					<!-- Navbar Left Options -->
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+							Driver
+							</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" routerLink="/list-drivers">List Drivers</a></li>
+								<li><a class="dropdown-item" routerLink="/add-driver">Add Driver</a></li>
+								<li><a class="dropdown-item" routerLink="/update-driver">Update Driver</a></li>
+								<li><a class="dropdown-item" routerLink="/delete-driver">Delete Driver</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+							Package
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end">
+								<li><a class="dropdown-item" routerLink="/list-packages">List Packages</a></li>
+								<li><a class="dropdown-item" routerLink="/add-package">Add Package</a></li>
+								<li><a class="dropdown-item" routerLink="/update-package">Update Package</a></li>
+								<li><a class="dropdown-item" routerLink="/delete-package">Delete Package</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+							Cloud Services
+							</a>
+							<ul class="dropdown-menu dropdown-menu-end">
+								<li><a class="dropdown-item" routerLink="/text-to-speech">Text to Speech</a></li>
+								<li><a class="dropdown-item" routerLink="/translate">Translate</a></li>
+								<li><a class="dropdown-item" routerLink="/generative-ai">Generative AI</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="d-inline-flex">
+					<!-- Navbar Brand Name/logo -->
+					<a class="navbar-brand text-center" routerLink="/">
+						<img src="/assets/images/logo.png" width="600" height="50" class="d-inline-block align-top" alt="">
+					</a>
+				</div>
+				
+				<div class="d-inline-flex">
+				<!-- Navbar Right Options -->
+					<ul class="navbar-nav ms-auto">   
+						<li class="nav-item">
+						<a class="nav-link" routerLink="/statistics">Statistics</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" routerLink="/login">Login</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</body>
+</html>

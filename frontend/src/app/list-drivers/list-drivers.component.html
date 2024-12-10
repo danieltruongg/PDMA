@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                @if (drivers.length == 0) {
+                    <h3 style="margin: 20px;">No Drivers Currently Registered</h3>
+                } @else {
+                    <h3 style="margin: 20px;">Drivers</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Licence</th>
+                                <th scope="col">is Active?</th>
+                                <th scope="col">Created at</th>
+                                <th scope="col">Packages</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(driver of drivers;track $index) {
+                                <tr>
+                                    <th scope="row">
+                                        {{ driver.driver_id }}
+                                    </th>
+                                    <td>
+                                        {{ driver.driver_name|uppName }}
+                                    </td>
+                                    <td>
+                                        {{ driver.driver_department }}
+                                    </td>
+                                    <td>
+                                        {{ driver.driver_licence }}
+                                    </td>
+                                    <td>
+                                        @if (driver.driver_isActive) {
+                                            <img src="/assets/images/check.png" width="20" height="20">
+                                        } @else {
+                                            <img src="/assets/images/x.png" width="20" height="20">
+                                        }
+                                    </td>
+                                    <td>
+                                        {{ driver.driver_createdAt|localeDate }}
+                                    </td>
+                                    <td>
+                                        <form (click)="disPackages(driver._id)">
+                                            <input type="hidden" name="driver_id" id="driver_id"/>
+                                            <input type="image" src="/assets/images/info.png" style="max-width: 25px; height: auto;" />
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form (click)="delDriver(driver._id)">
+                                            <input type="hidden" name="driver_id" id="driver_id"/>
+                                            <input type="image" src="/assets/images/delete.png" style="max-width: 25px; height: auto;"/>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                @if (showPackages) {
+                    <hr>
+                    @if (driverPackages.length == 0) {
+                        <h5>No Packages Assigned</h5>
+                    } @else {
+                        <h5>Assigned Packages</h5>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Weight</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Is Allocated</th>
+                                    <th scope="col">Created At</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(pkg of driverPackages; track $index) {
+                                    <tr>
+                                        <th scope="row">
+                                            {{ pkg.package_id }}
+                                        </th>
+                                        <td>
+                                            {{ pkg.package_title }}
+                                        </td>
+                                        <td>
+                                            {{ pkg.package_weight|kilogramGram }}
+                                        </td>
+                                        <td>
+                                            {{ pkg.package_destination }}
+                                        </td>
+                                        <td>
+                                            {{ pkg.description }}
+                                        </td>
+                                        <td>
+                                            @if (pkg.isAllocated) {
+                                                <img src="/assets/images/check.png" width="20" height="20">
+                                            } @else {
+                                                <img src="/assets/images/x.png" width="20" height="20">
+                                            }
+                                        </td>
+                                        <td>
+                                            {{ pkg.package_createdAt|localeDate }}
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
+        </main>
+    </body>
+</html>

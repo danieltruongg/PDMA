@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                <h3 style="margin: 20px;">Translate</h3>
+                <h6>Target Language</h6>
+                <form>
+                    <div class="mb-1">
+                        <select class="form-select" id="target_lang" name="target_lang" [(ngModel)]="targetLanguage">
+                            <option value="" selected disabled>Select Language</option>
+                            @for(lang of languages; track $index) {
+                                <option value='{"name": "{{ lang.name }}", "code": "{{ lang.code }}"}'>{{ lang.name }}</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+                <br>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Translate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(pkg of packages;track $index) {
+                            <tr>
+                                <th scope="row">
+                                    {{ pkg.package_id }}
+                                </th>
+                                <td>
+                                    {{ pkg.package_title }}
+                                </td>
+                                <td>
+                                    {{ pkg.package_weight|kilogramGram }}
+                                </td>
+                                <td>
+                                    {{ pkg.package_destination }}
+                                </td>
+                                <td>
+                                    {{ pkg.description }}
+                                </td>
+                                <td>
+                                    <form (click)="translate(pkg.description)">
+                                        <input type="hidden" name="package_description" id="package_description"/>
+                                        <input type="image" src="/assets/images/translate.png" style="max-width: 20px; height: auto;" />
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (showTranslation) {
+                    <br>
+                    <h6>Result</h6>
+                    <table class="table table border">
+                        <thead>
+                            <tr>
+                                <th scope="col">Text</th>
+                                <th scope="col">Target Language</th>
+                                <th scope="col">Translation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ result.text }}</td>
+                                <td>{{ result.lang }}</td>
+                                <td>{{ result.result }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                <h3 style="margin: 20px;">Text to Speech Converter</h3>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID </th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Licence</th>
+                            <th scope="col">Speech</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(driver of drivers;track $index) {
+                            <tr>
+                                <th scope="row">
+                                    {{ driver.driver_id }}
+                                </th>
+                                <td>
+                                    {{ driver.driver_name|uppName }}
+                                </td>
+                                <td>
+                                    {{ driver.driver_department }}
+                                </td>
+                                <td>
+                                    {{ driver.driver_licence }}
+                                </td>
+                                <td>
+                                    <form (click)="convert(driver.driver_licence)">
+                                        <input type="hidden" name="driver_licence" id="driver_licence"/>
+                                        <input type="image" src="/assets/images/text2speech.png" style="max-width: 25px; height: auto;" />
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @if (showAudio) {
+                    <h6>Result</h6>
+                    <audio [src]="audio" controls></audio>
+                }
+            </div>
+        </main>
+    </body>
+</html>

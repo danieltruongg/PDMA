@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Update an existing Driver details</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="driver_id" class="form-label">Driver ID</label>
+                                <select class="form-select" id="driver_id" name="driver_id" [(ngModel)]="driverIdInput">
+                                    <option value="" selected disabled>Select Driver ID</option>
+                                    @for(driver of drivers; track $index) {
+                                        <option value="{{ driver._id }}">{{ driver.driver_id }}</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="driver_department" class="form-label">Department</label>
+                                <input type="text" name="driver_department" id="driver_department" [(ngModel)]="departmentInput" 
+                                    class="form-control" placeholder="Enter new Driver department"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="driver_licence" class="form-label">Licence</label>
+                                <input type="text" name="driver_licence" id="driver_licence" [(ngModel)]="licenceInput" 
+                                    class="form-control" maxlength="5" minlength="5" placeholder="Enter new Driver licence"
+                                    required>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary" (click)="updDriver()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

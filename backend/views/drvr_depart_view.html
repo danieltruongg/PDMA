@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Licence</th>
+                            <th scope="col">is Active?</th>
+                            <th scope="col">Created at</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i=0; i < db.length; i++) { %>
+                            <tr>
+                                <th scope="row">
+                                <%= db[i].driver_id %>
+                                </th>
+                                <td>
+                                    <%= db[i].driver_name %>
+                                </td>
+                                <td>
+                                    <%= db[i].driver_department %>
+                                </td>
+                                <td>
+                                    <%= db[i].driver_licence %>
+                                </td>
+                                <td>
+                                    <% if (db[i].driver_isActive) { %>
+                                        <img src="/check.png" width="20" height="20">
+                                    <% } else { %>
+                                        <img src="/x.png" width="20" height="20">
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <%= db[i].driver_createdAt.toLocaleString() %>
+                                </td>
+                                <td>
+                                    <form action="/33158312/daniel/drivers/department-delete" method="POST">
+                                        <input type="hidden" name="drvrDepart" value="<%= depart%>" id="drvrDepart""/>
+                                        <input type="hidden" name="driverId" value="<%= db[i].driver_id%>" id="driverId""/>
+                                        <input type="image" src="/delete.png" style="max-width: 25px; height: auto;"/>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

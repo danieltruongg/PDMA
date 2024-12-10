@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Update an existing Package details</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="package_id" class="form-label">Package ID</label>
+                                <select class="form-select" id="package_id" name="package_id" [(ngModel)]="packageIdInput">
+                                    <option value="" selected disabled>Select Package ID</option>
+                                    @for(pkg of packages; track $index) {
+                                        <option value="{{ pkg._id }}">{{ pkg.package_id }}</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="package_destination" class="form-label">Destination</label>
+                                <input type="text" name="package_destination" id="package_destination" [(ngModel)]="destinationInput" 
+                                    class="form-control" placeholder="Enter new Package destination"
+                                    required>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary" (click)="updPackage()">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

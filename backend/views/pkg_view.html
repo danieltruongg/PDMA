@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Is Allocated</th>
+                            <th scope="col">Driver ID</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i=0; i<db.length; i++) { %>
+                            <tr>
+                                <th scope="row">
+                                <%= db[i].package_id %>
+                                </th>
+                                <td>
+                                    <%= db[i].package_title %>
+                                </td>
+                                <td>
+                                    <%= db[i].package_weight %>
+                                </td>
+                                <td>
+                                    <%= db[i].package_destination %>
+                                </td>
+                                <td>
+                                    <%= db[i].description %>
+                                </td>
+                                <td>
+                                    <% if (db[i].isAllocated) { %>
+                                        <img src="/check.png" width="20" height="20">
+                                    <% } else { %>
+                                        <img src="/x.png" width="20" height="20">
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <%= db[i].driver_id.driver_id %>
+                                </td>
+                                <td>
+                                    <%= db[i].package_createdAt.toLocaleString() %>
+                                </td>
+                                <td>
+                                    <form action="/33158312/daniel/packages/delete-package" method="GET">
+                                        <input type="hidden" name="package_id" value="<%= db[i].package_id%>" id="package_id"/>
+                                        <input type="image" src="/delete.png" style="max-width: 25px; height: auto;"/>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>

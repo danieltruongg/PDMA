@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <main>
+            <div class="container" style="padding: 30px 150px 0px">
+                @if (packages.length == 0) {
+                    <h3 style="margin: 20px;">No Packages Currently Registered</h3>
+                } @else {
+                    <h3 style="margin: 20px;">Packages</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Weight</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Is Allocated</th>
+                                <th scope="col">Driver ID</th>
+                                <th scope="col">Created At</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(pkg of packages; track $index) {
+                                <tr>
+                                    <th scope="row">
+                                        {{ pkg.package_id }}
+                                    </th>
+                                    <td>
+                                        {{ pkg.package_title }}
+                                    </td>
+                                    <td>
+                                        {{ pkg.package_weight|kilogramGram }}
+                                    </td>
+                                    <td>
+                                        {{ pkg.package_destination }}
+                                    </td>
+                                    <td>
+                                        {{ pkg.description }}
+                                    </td>
+                                    <td>
+                                        @if (pkg.isAllocated) {
+                                            <img src="/assets/images/check.png" width="20" height="20">
+                                        } @else {
+                                            <img src="/assets/images/x.png" width="20" height="20">
+                                        }
+                                    </td>
+                                    <td>
+                                        {{ pkg.driver_id.driver_id }}
+                                    </td>
+                                    <td>
+                                        {{ pkg.package_createdAt|localeDate }}
+                                    </td>
+                                    <td>
+                                        <form (click)="delPackage(pkg._id)">
+                                            <input type="hidden" name="package_id" id="package_id"/>
+                                            <input type="image" src="/assets/images/delete.png" style="max-width: 25px; height: auto;"/>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </main>
+    </body>
+</html>

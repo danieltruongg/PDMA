@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<link href="/bootstrap.min.css" rel="stylesheet" />
+	</head>
+    <body>
+        <header>
+            <%- include('./common/header.html') %>
+        </header>
+        
+        <main>
+            <div class="container">
+                <h3 style="margin: 20px;">Add a new Driver</h3>
+                <div class="card w-50 shadow-sm mx-auto">
+                    <div class="card-body">
+                        <form action='/33158312/daniel/drivers/add/data' method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" name="driver_name" class="form-control" id="driver_name" 
+                                    maxlength="20" minlength="3" placeholder="Enter Driver name" 
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Department</label>
+                                <select class="form-select" id="driver_department" name="driver_department">
+                                    <option selected disabled>Select Department</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Electronic">Electronic</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="licence" class="form-label">Licence</label>
+                                <input type="text" name="driver_licence" class="form-control" id="driver_licence"
+                                    maxlength="5" minlength="5" placeholder="Enter Driver licence"
+                                    required>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="driver_isActive" name="driver_isActive" value="true" checked>
+                                <label class="form-check-label" for="driver_isActive">is Active?</label>
+                            </div>
+                            <div style="margin-top: 30px;">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <%- include('./common/footer.html') %>
+        </footer>
+    </body>
+</html>
