@@ -2,7 +2,7 @@
 
 A web application (Package Delivery Management Application) developed during the completion of FIT2095 using to the MEAN stack which enables and manages assignment of packages to drivers for delivery.
 
-#### Additional Files
+## Prerequisite Files
 
 * Add the following files to __*/backend*__:
 
@@ -14,7 +14,7 @@ A web application (Package Delivery Management Application) developed during the
     * __google-service-account.json__ (for Google Cloud APIs)
     * __service-account.json__ (for Google Firebase)
 
-#### Local Machine Hosting
+## Local Machine Hosting
 * Run the following commands:
     ```shell
     cd frontend
